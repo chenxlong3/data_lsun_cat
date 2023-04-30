@@ -1,0 +1,6 @@
+2023-04-30 10:31:45 INFO: Start Data Processing for LSUN-CAT on device: cuda:0
+2023-04-30 10:31:45 INFO: Loading data takes 0.6562998294830322s
+2023-04-30 10:31:46 INFO: --- Batch 0 ---
+2023-04-30 10:31:48 INFO: Forward Pass with Batch 0 takes 1.9289538860321045s
+2023-04-30 10:31:48 INFO: Saving the masks
+2023-04-30 10:31:48 INFO: The whole process takes 3.2366247177124023s

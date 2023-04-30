@@ -1,0 +1,4 @@
+2023-04-30 10:29:12 INFO: Loading data takes 0.7858409881591797s
+2023-04-30 10:29:12 INFO: Start Data Processing for LSUN-CAT on device: cuda:0
+2023-04-30 10:29:52 INFO: Loading data takes 0.7076566219329834s
+2023-04-30 10:29:52 INFO: Start Data Processing for LSUN-CAT on device: cuda:0
