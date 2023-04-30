@@ -108,7 +108,7 @@ def main():
                 outputs = model(**x)
             logging.info(f"Forward Pass with Batch {i} takes {time.time()-st_time}s")
             
-            logging.info(f"Saving the masks")
+            logging.info(f"Saving the masks, segments and segments info")
             saving_masks(outputs, files, target_size=(384, 384))
 
             if i > 0 and i % 1000 == 0:
