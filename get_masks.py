@@ -10,13 +10,13 @@ from dataset import LSUN_CAT
 import logging
 from parse import parse_args
 from loggers import init_logs
+
 args = parse_args()
 MASK_INPUT_SIZE = (384, 384)
 MASK_OUTPUT_SIZE = (384, 384)
 processor = Mask2FormerImageProcessor(True, MASK_INPUT_SIZE)
 device = f"cuda:{args.gpu_num}" if torch.cuda.is_available() else "cpu"
 model = Mask2FormerForUniversalSegmentation.from_pretrained("facebook/mask2former-swin-base-coco-panoptic").to(device)
-
 
 # Store data
 os.makedirs("./data/masks/", exist_ok=True)
@@ -25,7 +25,7 @@ def create_dir(filename, mask_dir="./data/masks/"):
     # exclude the extension
     dir_name = filename[:-4]
     target_dir = os.path.join(mask_dir, dir_name)
-    os.makedirs(target_dir, exist_ok=True)
+    os.makedirs(target_dir)
     return target_dir
 
 def save_mask_img(mask_list:list, id_list, out_dir:str):
@@ -95,7 +95,7 @@ def main():
     logging.info(str(args))
     ds_st_time = time.time()
     # Dataset and DataLoader
-    ds = LSUN_CAT("./data/images/")
+    ds = LSUN_CAT("./data/images/", st_idx=args.start_idx)
     data_loader = DataLoader(ds, batch_size=args.batch_size, shuffle=False)
     logging.info(f"Loading data takes {time.time() - ds_st_time}s")
     for i, (x, files) in enumerate(data_loader):
